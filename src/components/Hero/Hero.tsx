@@ -1,4 +1,4 @@
-import { ActionLink } from "@/src/components/ActionLink/ActionLink";
+import { ActionLink } from "../../components/ActionLink/ActionLink";
 import { Title } from "../Title/Title";
 import { Text } from "../Text/Text";
 
