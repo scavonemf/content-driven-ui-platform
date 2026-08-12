@@ -1,5 +1,5 @@
 export type HeroSection = {
-  type: "hero";
+  type: 'hero';
   id: string;
   eyebrow?: string;
   title: string;
@@ -9,14 +9,31 @@ export type HeroSection = {
 };
 
 export type FeatureListSection = {
-  type: "feature-list";
+  type: 'feature-list';
   id: string;
   title: string;
   items: string[];
 };
 
-export type Section = HeroSection | FeatureListSection;
+export type TestimonialSection = {
+  id: string;
+  type: 'testimonial';
+  quote: string;
+  author: string;
+  role?: string;
+};
+
+export type ImageSection = {
+  id: string;
+  type: 'image';
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+export type Section =
+  HeroSection | FeatureListSection | TestimonialSection | ImageSection;
 
 export type Page = {
-  sections: Section [];
+  sections: Section[];
 };

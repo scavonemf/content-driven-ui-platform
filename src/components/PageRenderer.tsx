@@ -1,7 +1,8 @@
-import type { Section } from "../content/types";
-import { Hero } from "./Hero/Hero";
-import { FeatureList } from "./FeatureList/FeatureList";
-
+import type { Section } from '../content/types';
+import { Hero } from './Hero/Hero';
+import { FeatureList } from './FeatureList/FeatureList';
+import { Testimonial } from './Testimonial/Testimonial';
+import { ImageSection } from './ImageSection/ImageSection';
 
 type PageRendererProps = {
   sections: Section[];
@@ -14,9 +15,9 @@ function assertNever(value: never): never {
 export function PageRenderer({ sections }: PageRendererProps) {
   return (
     <>
-      {sections.map((section) => {
+      {sections.map(section => {
         switch (section.type) {
-          case "hero":
+          case 'hero':
             return (
               <Hero
                 key={section.id}
@@ -27,12 +28,30 @@ export function PageRenderer({ sections }: PageRendererProps) {
                 ctaHref={section.ctaHref}
               />
             );
-          case "feature-list":
+          case 'feature-list':
             return (
               <FeatureList
                 key={section.id}
                 title={section.title}
                 items={section.items}
+              />
+            );
+          case 'testimonial':
+            return (
+              <Testimonial
+                key={section.id}
+                quote={section.quote}
+                author={section.author}
+                role={section.role}
+              />
+            );
+          case 'image':
+            return (
+              <ImageSection
+                key={section.id}
+                src={section.src}
+                alt={section.alt}
+                caption={section.caption}
               />
             );
           default:
