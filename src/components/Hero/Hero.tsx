@@ -1,3 +1,7 @@
+import { ActionLink } from "@/src/components/ActionLink/ActionLink";
+import { Title } from "../Title/Title";
+import { Text } from "../Text/Text";
+
 type HeroProps = {
   eyebrow?: string;
   title: string;
@@ -14,19 +18,21 @@ export function Hero({eyebrow,
 }: HeroProps) {
   return (
     <section>
-        <p>{eyebrow}</p>
+        {eyebrow && <Text size="sm">{eyebrow}</Text>}   
 
-        <h1>{title}</h1>
+       <Title>{title}</Title>
 
-        <p>
+        {description && (
+          <Text size="lg">
             {description}
-        </p>
+          </Text>
+        )}
 
-      {ctaText && 
-        <a href={ctaHref} className="block w-fit mt-5 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
-            {ctaText ?? "Get Started"}
-        </a>
-    }
+      {ctaText && ctaHref &&
+        <ActionLink href={ctaHref}>
+          {ctaText}
+        </ActionLink>
+      }
     </section>
   );
 }
