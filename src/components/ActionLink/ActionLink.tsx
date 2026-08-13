@@ -1,18 +1,36 @@
+import type { ReactNode } from 'react';
+
 type ActionLinkProps = {
   href: string;
-  children: React.ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: 'primary' | 'secondary';
+  children: ReactNode;
 };
 
 const variantStyles = {
-  primary:
-    "block w-fit mt-5 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600",
-  secondary:
-    "block w-fit mt-5 border border-zinc-300 text-zinc-900 py-2 px-4 rounded-md hover:bg-zinc-100",
-};
+  primary: 'bg-blue-600 text-white hover:bg-blue-700',
+  secondary: 'border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50',
+} as const;
 
-export const ActionLink = ({ href, children, variant ='primary' }: ActionLinkProps) => (
-  <a href={href} className={variantStyles[variant]}>
-    {children}
-  </a>
-);
+export function ActionLink({
+  href,
+  variant = 'primary',
+  children,
+}: ActionLinkProps) {
+  return (
+    <a
+      href={href}
+      className={[
+        'inline-flex items-center rounded-lg px-5 py-3',
+        'text-sm font-medium',
+        'transition-colors',
+        'focus-visible:outline-2',
+        'focus-visible:outline-offset-2',
+        'focus-visible:outline-blue-600',
+        'motion-reduce:transition-none',
+        variantStyles[variant],
+      ].join(' ')}
+    >
+      {children}
+    </a>
+  );
+}

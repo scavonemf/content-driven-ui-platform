@@ -4,8 +4,10 @@ export type HeroSection = {
   eyebrow?: string;
   title: string;
   description?: string;
-  ctaText?: string;
-  ctaHref?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
 };
 
 export type FeatureListSection = {
@@ -16,16 +18,16 @@ export type FeatureListSection = {
 };
 
 export type TestimonialSection = {
-  id: string;
   type: 'testimonial';
+  id: string;
   quote: string;
   author: string;
   role?: string;
 };
 
 export type ImageSection = {
-  id: string;
   type: 'image';
+  id: string;
   src: string;
   alt: string;
   caption?: string;

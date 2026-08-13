@@ -9,8 +9,10 @@ export const homePage: Page = {
       title: 'Build better digital experiences',
       description:
         'A content-driven platform built with reusable and accessible UI components.',
-      ctaText: 'Explore platform',
-      ctaHref: '/platform',
+      cta: {
+        label: 'Explore platform',
+        href: '/platform',
+      },
     },
     {
       id: 'feature-home',

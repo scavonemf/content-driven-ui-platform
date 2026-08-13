@@ -1,38 +1,36 @@
-import { ActionLink } from "../../components/ActionLink/ActionLink";
-import { Title } from "../Title/Title";
-import { Text } from "../Text/Text";
+import { HeroSection } from '@/src/content/types';
+import { ActionLink } from '../ActionLink/ActionLink';
 
-type HeroProps = {
-  eyebrow?: string;
-  title: string;
-  description?: string;
-  ctaText?: string;
-  ctaHref?: string;
-};
+type HeroProps = HeroSection;
 
-export function Hero({eyebrow,
-  title,
-  description,
-  ctaText,
-  ctaHref,
-}: HeroProps) {
+export function Hero({ id, eyebrow, title, description, cta }: HeroProps) {
+  const headingId = `${id}-heading`;
   return (
-    <section>
-        {eyebrow && <Text size="sm">{eyebrow}</Text>}   
+    <section
+      aria-labelledby={headingId}
+      className="mx-auto max-w-4xl px-6 py-24 text-center"
+    >
+      {eyebrow && (
+        <p className="mb-4 text-sm font-medium uppercase tracking-wide text-blue-600">
+          {eyebrow}
+        </p>
+      )}
 
-       <Title>{title}</Title>
+      <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl">
+        {title}
+      </h1>
 
-        {description && (
-          <Text size="lg">
-            {description}
-          </Text>
-        )}
+      {description && (
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
+          {description}
+        </p>
+      )}
 
-      {ctaText && ctaHref &&
-        <ActionLink href={ctaHref}>
-          {ctaText}
-        </ActionLink>
-      }
+      {cta && (
+        <div className="mt-8">
+          <ActionLink href={cta.href}>{cta.label}</ActionLink>
+        </div>
+      )}
     </section>
   );
 }

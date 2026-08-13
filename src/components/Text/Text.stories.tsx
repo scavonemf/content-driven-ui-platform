@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Text } from "./Text";
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+
+import { Text } from './Text';
 
 const meta = {
-  title: "Components/Text",
+  title: 'Components/Text',
   component: Text,
   args: {
-    as: "p",
-    children: "this text is a paragraph",
+    as: 'p',
+    children: 'this text is a paragraph',
   },
 } satisfies Meta<typeof Text>;
 
@@ -16,14 +17,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Small: Story = {
   args: {
-    size: "sm",
-  }, 
+    size: 'sm',
+  },
 };
 
 export const Medium: Story = {};
 
 export const Large: Story = {
   args: {
-    size: "lg",
-  }, 
+    size: 'lg',
+  },
 };

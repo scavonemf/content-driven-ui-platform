@@ -1,21 +1,16 @@
 type TitleProps = {
-  as?: "h1" | "h2" | "h3";
+  as?: 'h1' | 'h2' | 'h3';
   children: React.ReactNode;
 };
 
-const sizeStyles = {
-  h1: "text-4xl font-bold",
-  h2: "text-3xl font-semibold",
-  h3: "text-2xl font-semibold",
+const styles = {
+  h1: 'text-4xl font-bold tracking-tight text-zinc-900',
+  h2: 'text-3xl font-bold tracking-tight text-zinc-900',
+  h3: 'text-xl font-semibold text-zinc-900',
 };
 
-export const Title = ({ as = "h1", children }: TitleProps) => {
+export function Title({ as = 'h1', children }: TitleProps) {
+  const Component = as;
 
-    const Component = as ;
-
-    return (
-        <Component className={sizeStyles[as]}>
-            {children}
-        </Component>
-    )
+  return <Component className={styles[as]}>{children}</Component>;
 }

@@ -1,22 +1,17 @@
 type TextProps = {
-    as?: "p" | "span";
-    size?: "sm" | "md" | "lg";
-    children: React.ReactNode;
+  as?: 'p' | 'span';
+  size?: 'sm' | 'md' | 'lg';
+  children: React.ReactNode;
 };
 
-const sizeStyles = {
-  sm: 'font-size: 0.875rem; line-height: 1.25rem;',
-  md: 'font-size: 1rem; line-height: 1.5rem;',
-  lg: 'font-size: 1.125rem; line-height: 1.75rem;',
+const styles = {
+  sm: 'text-sm leading-6 text-zinc-500',
+  md: 'text-base leading-7 text-zinc-700',
+  lg: 'text-lg leading-8 text-zinc-700',
 };
 
-export const Text = ({ as = "p", size = "md", children }: TextProps) => {
+export function Text({ as = 'p', size = 'md', children }: TextProps) {
+  const Component = as;
 
-    const Component = as;
-
-    return (
-        <Component className={sizeStyles[size]}>
-            {children}
-        </Component>
-    )
+  return <Component className={styles[size]}>{children}</Component>;
 }
