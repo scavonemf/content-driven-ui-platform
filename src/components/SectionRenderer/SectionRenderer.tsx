@@ -16,16 +16,16 @@ function assertNever(value: never): never {
 export function SectionRenderer({ section }: SectionRendererProps) {
   switch (section.type) {
     case 'hero':
-      return <Hero key={section.id} {...section} />;
+      return <Hero {...section} />;
 
     case 'feature-list':
-      return <FeatureList key={section.id} {...section} />;
+      return <FeatureList {...section} />;
 
     case 'testimonial':
-      return <Testimonial key={section.id} {...section} />;
+      return <Testimonial {...section} />;
 
     case 'image':
-      return <ImageSection key={section.id} {...section} />;
+      return <ImageSection {...section} />;
 
     default:
       return assertNever(section);

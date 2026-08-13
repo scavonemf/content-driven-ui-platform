@@ -31,7 +31,7 @@ describe('ActionLink', () => {
       name: 'Explore platform',
     });
 
-    expect(link).toHaveClass('bg-blue-600');
+    expect(link).toHaveClass('bg-primary');
   });
 
   it('renders the secondary variant', () => {

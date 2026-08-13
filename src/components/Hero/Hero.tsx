@@ -1,36 +1,42 @@
-import { HeroSection } from '@/src/content/types';
+import type { HeroSection } from '../../content/types';
+
 import { ActionLink } from '../ActionLink/ActionLink';
+import { Text } from '../Text/Text';
+import { Title } from '../Title/Title';
+import { Container } from '../ui/Container/Container';
 
 type HeroProps = HeroSection;
 
 export function Hero({ id, eyebrow, title, description, cta }: HeroProps) {
   const headingId = `${id}-heading`;
+
   return (
-    <section
-      aria-labelledby={headingId}
-      className="mx-auto max-w-4xl px-6 py-24 text-center"
-    >
-      {eyebrow && (
-        <p className="mb-4 text-sm font-medium uppercase tracking-wide text-blue-600">
-          {eyebrow}
-        </p>
-      )}
+    <section aria-labelledby={headingId} className="py-24 text-center">
+      <Container>
+        <div className="mx-auto max-w-4xl">
+          {eyebrow && (
+            <p className="mb-4 text-sm font-medium uppercase tracking-wide text-primary">
+              {eyebrow}
+            </p>
+          )}
 
-      <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl">
-        {title}
-      </h1>
+          <Title id={headingId} as="h1" className="sm:text-6xl">
+            {title}
+          </Title>
 
-      {description && (
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
-          {description}
-        </p>
-      )}
+          {description && (
+            <div className="mx-auto mt-6 max-w-2xl">
+              <Text size="lg">{description}</Text>
+            </div>
+          )}
 
-      {cta && (
-        <div className="mt-8">
-          <ActionLink href={cta.href}>{cta.label}</ActionLink>
+          {cta && (
+            <div className="mt-8">
+              <ActionLink href={cta.href}>{cta.label}</ActionLink>
+            </div>
+          )}
         </div>
-      )}
+      </Container>
     </section>
   );
 }

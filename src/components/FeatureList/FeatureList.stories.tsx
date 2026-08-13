@@ -1,17 +1,26 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { FeatureList } from "./FeatureList";
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+
+import { FeatureList } from './FeatureList';
 
 const meta = {
-  title: "Components/FeatureList",
+  title: 'Sections/FeatureList',
   component: FeatureList,
-  args: {
-    title: "Our Features",
-    items: ["Feature 1", "Feature 2", "Feature 3"],
-  },
 } satisfies Meta<typeof FeatureList>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+  args: {
+    type: 'feature-list',
+    id: 'feature-list-story',
+    title: 'Why this platform?',
+    items: [
+      'Reusable UI components',
+      'Accessible interfaces',
+      'Performance focused',
+      'Content-driven architecture',
+    ],
+  },
+};

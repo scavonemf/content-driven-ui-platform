@@ -7,8 +7,9 @@ type ActionLinkProps = {
 };
 
 const variantStyles = {
-  primary: 'bg-blue-600 text-white hover:bg-blue-700',
-  secondary: 'border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50',
+  primary: 'bg-primary text-white hover:bg-primary-hover',
+  secondary:
+    'border border-border bg-surface text-text-primary hover:bg-zinc-50',
 } as const;
 
 export function ActionLink({
