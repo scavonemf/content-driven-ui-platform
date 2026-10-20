@@ -9,9 +9,9 @@ export function FeatureList({ title, items }: FeatureListSection) {
       <Container>
         <Title as="h2">{title}</Title>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-          {items.map((item, index) => (
+          {items.map(item => (
             <li
-              key={`${item}-${index}`}
+              key={item}
               className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
             >
               <Text>{item}</Text>

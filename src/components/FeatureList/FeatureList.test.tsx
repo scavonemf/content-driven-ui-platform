@@ -42,4 +42,15 @@ describe('FeatureList', () => {
 
     expect(screen.getAllByRole('listitem')).toHaveLength(3);
   });
+
+  it('renders the section title as an h2', () => {
+    render(<FeatureList {...props} />);
+
+    expect(
+      screen.getByRole('heading', {
+        level: 2,
+        name: 'Why this platform?',
+      })
+    ).toBeInTheDocument();
+  });
 });
